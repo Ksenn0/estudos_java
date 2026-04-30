@@ -4,9 +4,9 @@ public class Produto {
     private int estoque;
 
     public Produto(String nome, double preco, int estoque){
-        this.nome = nome;
-        this.preco = preco;
-        this.estoque = estoque;
+        setNome(nome);
+        setPreco(preco);
+        setEstoque(estoque);
     }
 
     // Getters
@@ -23,6 +23,14 @@ public class Produto {
     }
 
     // Setters
+    public void setNome(String nome){
+        if(nome == null || nome.isBlank()){
+            System.out.println("Erro: Nome não pode ser negativo.");
+        }else{
+            this.nome = nome;
+        }
+    }
+
     public void setPreco(double preco){
         System.out.println("\nProduto: " + getNome());
         if(preco < 0){
@@ -45,15 +53,17 @@ public class Produto {
 
     public void exibirInfo(){
         System.out.println("\nNome: " + getNome());
-        System.out.println("Preço: R$" + getPreco());
+        System.out.printf("Preço: R$ %.2f%n", getPreco());
         System.out.println("Estoque: " + getEstoque());
     }
 
     public void vender(int quantidade){
-        if(quantidade > this.estoque){
+        if(quantidade > getEstoque()){
             System.out.println("\nEstoque insuficiente.");
-        }else{
-            this.estoque = this.estoque - quantidade;
+        } else if (quantidade <= 0) {
+            System.out.println("\nQuantidade Inválida.");
+        } else{
+            setEstoque(getEstoque() - quantidade);
             System.out.println("\nVenda realizada! Estoque atual de " + getNome() + ": " + getEstoque());
         }
     }
