@@ -6,15 +6,15 @@ public class Main {
         p1.exibirInfo();
         p2.exibirInfo();
 
-        p1.setPreco(-15.75);
-        p1.setEstoque(-3);
-        p2.setPreco(-33.25);
-        p2.setEstoque(-35);
+        p1.setPreco(-15.75, true);
+        p1.setEstoque(-3, true);
+        p2.setPreco(-33.25, true);
+        p2.setEstoque(-35, true);
 
-        p1.setPreco(150.75);
-        p1.setEstoque(15);
-        p2.setPreco(49.90);
-        p2.setEstoque(25);
+        p1.setPreco(150.75, true);
+        p1.setEstoque(15, true);
+        p2.setPreco(49.90, true);
+        p2.setEstoque(25, true);
 
         p1.exibirInfo();
         p2.exibirInfo();
